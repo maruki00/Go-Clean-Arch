@@ -6,12 +6,12 @@ type ViewModel struct {
 	data any
 }
 
-func NewJsonViewModel(data any) contracts.ViewModel {
+func NewJsonViewModel(data ResponseModel) contracts.ViewModel {
 	return &ViewModel{
 		data: data,
 	}
 }
 
-func (v *ViewModel) GetData() any {
+func (v *ViewModel) GetResponse() any {
 	return v.data
 }

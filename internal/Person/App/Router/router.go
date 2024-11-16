@@ -13,7 +13,7 @@ func NewRouter(router *gin.Engine) *gin.Engine {
 
 	db := make(map[int]entities.PersonEntity, 0)
 	repo := repositories.NewPersonRepository(db)
-	usecase := usecases.NewPersonUSeCase(repo, )
+	usecase := usecases.NewPersonUSeCase(repo)
 
 	r := gin.Default()
 	r.POST("/api/v1/person/create")
@@ -21,6 +21,4 @@ func NewRouter(router *gin.Engine) *gin.Engine {
 	r.DELETE("/api/v1/person/delete")
 	r.POST("/api/v1/person/get")
 	r.POST("/api/v1/person/search")
-	router.Post
-
 }
