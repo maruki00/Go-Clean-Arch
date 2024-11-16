@@ -1,10 +1,9 @@
 package ports
 
 import (
-	contracts "command-line-arguments/home/user/Desktop/person/internal/Person/Domain/Contracts/ViewModel.go"
-	shared_entities "command-line-arguments/home/user/Desktop/person/internal/Shared/Domain/Entities/ResponseModel.go"
+	contracts "go-clean-arch/internal/Person/Domain/Contracts"
+	shared_entities "go-clean-arch/internal/Shared/Domain/Entities"
 )
-
 
 type PersonOutputPort interface {
 	Success(data shared_entities.ResponseModel) contracts.ViewModel

@@ -2,8 +2,8 @@ package repositories
 
 import (
 	"errors"
-	contracts "person/internal/Person/Domain/Contracts"
-	entities "person/internal/Person/Domain/Entities"
+	contracts "go-clean-arch/internal/Person/Domain/Contracts"
+	entities "go-clean-arch/internal/Person/Domain/Entities"
 )
 
 type PersonRepository struct {

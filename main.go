@@ -1,6 +1,11 @@
 package main
 
-func main() {
+import "github.com/gin-gonic/gin"
 
-	internal_person_domain_entities.PersonEntity
+func main() {
+	router := gin.Default()
+	router.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(200, "hellowqorld")
+	})
+	router.Run(":3000")
 }
