@@ -1,11 +1,15 @@
 package presenters
 
-import viewmodels "person/internal/Person/UserGateway/Adapters/ViewModels"
+import (
+	contracts "go-clean-arch/internal/Person/Domain/Contracts"
+	shared_entities "go-clean-arch/internal/Shared/Domain/Entities"
+	viewmodels "person/internal/Person/UserGateway/Adapters/ViewModels"
+)
 
 type PersonPresenter struct {
 }
 
-func NewJSONAuthPresenter() JsonPersonPresenter {
+func NewJSONAuthPresenter() contracts.ViewModel {
 	return PersonPresenter{}
 }
 
