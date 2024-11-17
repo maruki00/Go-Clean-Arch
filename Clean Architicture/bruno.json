@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Clean Architicture",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

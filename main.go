@@ -1,11 +1,14 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	router "go-clean-arch/internal/Person/App/Router"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	router := gin.Default()
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, "hellowqorld")
-	})
-	router.Run(":3000")
+	r := gin.Default()
+	router.NewRouter(r)
+
+	r.Run(":3000")
 }

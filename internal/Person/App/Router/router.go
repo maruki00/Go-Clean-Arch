@@ -5,24 +5,22 @@ import (
 	entities "go-clean-arch/internal/Person/Domain/Entities"
 	repositories "go-clean-arch/internal/Person/Infra/Repositories"
 	presenters "go-clean-arch/internal/Person/UserGateway/Adapters/Presenters"
+	controllers "go-clean-arch/internal/Person/UserGateway/Controllers"
 
 	"github.com/gin-gonic/gin"
-	"github.com/rs/cors/wrapper/gin"
 )
 
-func NewRouter(router *gin.Engine) *gin.Engine {
+func NewRouter(router *gin.Engine) {
 
 	db := make(map[int]entities.PersonEntity, 0)
 	repo := repositories.NewPersonRepository(db)
 	usecases := usecases.NewPersonUSeCase(repo, presenters.NewJSONAuthPresenter())
 
-	controller := contri 
+	controller := controllers.NewPersonController(usecases)
 
-
-	r := gin.Default()
-	r.POST("/api/v1/person/create")
-	r.PATCH("/api/v1/person/update")
-	r.DELETE("/api/v1/person/delete")
-	r.POST("/api/v1/person/get")
-	r.POST("/api/v1/person/search")
+	router.POST("/api/v1/person/create", controller.Create)
+	router.PATCH("/api/v1/person/update", controller.Update)
+	router.DELETE("/api/v1/person/delete", controller.Delete)
+	router.GET("/api/v1/person/get", controller.Get)
+	router.GET("/api/v1/person/search", controller.Search)
 }

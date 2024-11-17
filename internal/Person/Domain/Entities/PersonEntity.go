@@ -13,6 +13,7 @@ type Person struct{
 */
 
 type PersonEntity interface {
+	SetId(idi int)
 	GetId() int
 	GetName() string
 	GetEmail() string

@@ -1,12 +1,12 @@
 package models
 
-import valueobject "person/internal/Person/Domain/ValueObjects"
+import valueobject "go-clean-arch/internal/Person/Domain/ValueObjects"
 
 type Person struct {
 	Id    int
 	Name  string
-	Email valueobject.Email
-	Age   valueobject.Age
+	Email *valueobject.Email
+	Age   *valueobject.Age
 }
 
 func (obj *Person) GetId() int {
@@ -20,4 +20,8 @@ func (obj *Person) GetEmail() string {
 }
 func (obj *Person) GetAge() int {
 	return obj.Age.GetValue()
+}
+
+func (obj *Person) SetId(id int) {
+	obj.Id = id
 }

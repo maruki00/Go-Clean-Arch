@@ -7,21 +7,26 @@ import (
 )
 
 type PersonRepository struct {
+	id int
 	db map[int]entities.PersonEntity
 }
 
 func NewPersonRepository(d map[int]entities.PersonEntity) contracts.IPersonRepository {
 	return &PersonRepository{
 		db: d,
+		id: 1,
 	}
 }
 
 func (obj *PersonRepository) Create(person entities.PersonEntity) (entities.PersonEntity, error) {
+
+	person.SetId(obj.id)
 	_, ok := obj.db[person.GetId()]
 	if ok {
 		return nil, errors.New("record already exists")
 	}
 	obj.db[person.GetId()] = person
+	obj.id++
 	return person, nil
 }
 

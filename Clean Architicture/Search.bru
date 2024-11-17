@@ -1,0 +1,15 @@
+meta {
+  name: Search
+  type: http
+  seq: 6
+}
+
+get {
+  url: http://localhost:3000/api/v1/person/search?query=helloworld
+  body: none
+  auth: none
+}
+
+params:query {
+  query: helloworld
+}

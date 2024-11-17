@@ -1,0 +1,15 @@
+meta {
+  name: Get
+  type: http
+  seq: 5
+}
+
+get {
+  url: http://localhost:3000/api/v1/person/get?id=1
+  body: none
+  auth: none
+}
+
+params:query {
+  id: 1
+}
