@@ -35,19 +35,28 @@ message GetPersonRequest{
 message SearshPersonRequest{
     string query = 1;
 }
+message Data {}
 message Response {
     int32 status = 1;
     string message = 2;
-    any
+    Data data = 3;
 }
 
 message CreatePersonResponse{
-    
+    Response result = 1;
 }
-message UpdatePersonResponse{}
-message DeletePersonResponse{}
-message GetPersonResponse{}
-message SearshPersonResponse{}
+message UpdatePersonResponse{
+    Response result = 1;
+}
+message DeletePersonResponse{
+    Response result = 1;
+}
+message GetPersonResponse{
+    Response result = 1;
+}
+message SearshPersonResponse{
+    Response result = 1;
+}
 
 
 
