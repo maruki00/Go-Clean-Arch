@@ -1,0 +1,60 @@
+syntax="proto3";
+
+
+package proto;
+
+
+option go_package = "person.grpc";
+
+
+message ProtoPerson {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    int32 age = 4;
+}
+
+message CreatePersonRequest{
+    string name = 2;
+    string email = 3;
+    int32 age = 4;
+}
+message UpdatePersonRequest{
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    int32 age = 4;
+}
+
+message DeletePersonRequest{   
+    int32 id = 1;
+}
+message GetPersonRequest{
+    int32 id = 1;
+}
+message SearshPersonRequest{
+    string query = 1;
+}
+message Response {
+    int32 status = 1;
+    string message = 2;
+    any
+}
+
+message CreatePersonResponse{
+    
+}
+message UpdatePersonResponse{}
+message DeletePersonResponse{}
+message GetPersonResponse{}
+message SearshPersonResponse{}
+
+
+
+service PersonService{
+    rpc CreatePerson(CreatePersonRequest) returns (CreatePersonResponse);
+    rpc UpdatePerson(UpdatePersonRequest) returns (UpdatePersonResponse);
+    rpc DeletePerson(DeletePersonRequest) returns (DeletePersonResponse);
+    rpc GetPerson(GetPersonRequest) returns (GetPersonResponse);
+    rpc SearshPerson(SearshPersonRequest) returns (SearshPersonResponse);
+}
