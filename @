@@ -1,0 +1,14 @@
+version: "3.8"
+
+
+
+services:
+  container_name: rabbitmq_clean_arch
+  image: 
+  network: go-clean-arch-net
+
+
+
+
+networks:
+    - go-clean-arch-net
