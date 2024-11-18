@@ -3,12 +3,23 @@ version: "3.8"
 
 
 services:
-  container_name: rabbitmq_clean_arch
-  image: 
-  network: go-clean-arch-net
 
-
+  rabbit_mq:
+    image: rabbitmq:3.11-management-alpine
+      environment:
+        RABBITMQ_DEFAULT_USER: guest
+        RABBITMQ_DEFAULT_PASS: guest
+      healthcheck:
+        test: rabbitmq-diagnostics -q ping
+        interval: 30s
+        timeout: 30s
+        retries: 3
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      networks:
+        - cleanarch-network
 
 
 networks:
-    - go-clean-arch-net
+    - cleanarch-network
